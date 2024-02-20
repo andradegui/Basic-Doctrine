@@ -6,7 +6,14 @@
 
 - php bin/doctrine.php
 - php bin/doctrine.php orm:schema-tool:update --force
+
+### P/ rodar uma consulta em SQL
 - php bin/doctrine.php dbal:run-sql ""
+
+### Comandos migrations
+- php vendor/bin/doctrine-migrations
+- php vendor/bin/doctrine-migrations migrations:generate
+- php vendor/bin/doctrine-migrations migrations:migrate
 
 ---
 

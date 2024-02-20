@@ -1,10 +1,17 @@
 <?php
-use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
-// replace with file to your own project bootstrap
-require_once 'vendor/autoload.php';
+require 'vendor/autoload.php';
 
-// replace with mechanism to retrieve EntityManager in your app
-$entityManager = \Alura\Doctrine\Helper\EntityManagerCreator::createEntityManager();
+use Doctrine\Migrations\Configuration\Migration\PhpFile;
+use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
+use Doctrine\Migrations\DependencyFactory;
+use Alura\Doctrine\Helper\EntityManagerCreator;
 
-return ConsoleRunner::createHelperSet($entityManager);
+$config = new PhpFile(__DIR__ . '/migrations.php'); // Or use one of the Doctrine\Migrations\Configuration\Configuration\* loaders
+
+$paths = [__DIR__ . '/lib/MyProject/Entities'];
+$isDevMode = true;
+
+$entityManager = EntityManagerCreator::createEntityManager();
+
+return DependencyFactory::fromEntityManager($config, new ExistingEntityManager($entityManager));
