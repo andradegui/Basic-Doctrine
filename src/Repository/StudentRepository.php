@@ -12,8 +12,8 @@ class StudentRepository extends EntityRepository {
         return $this->createQueryBuilder('student')
                     ->addSelect('phone')
                     ->addSelect('course')
-                    ->leftJoin('student.phone', 'phone')
-                    ->leftJoin('student.course', 'course')
+                    ->leftJoin('student.phones', 'phone')
+                    ->leftJoin('student.courses', 'course')
                     ->getQuery()
                     ->getResult();
 
