@@ -23,10 +23,26 @@ class EntityManagerCreator
         $logMiddleware = new Middleware($consoleLogger);
         $config->setMiddlewares([$logMiddleware]);
 
+        $cacheDirectory = __DIR__ . '/../../var/cache';
+
         $config->setMetadataCache(
             new PhpFilesAdapter(
                 namespace: 'metadata_cache',
-                directory: __DIR__ . '/../../var/cache'
+                directory: $cacheDirectory
+            )
+        );
+
+        $config->setQueryCache(
+            new PhpFilesAdapter(
+                namespace: 'query_cache',
+                directory: $cacheDirectory
+            )
+        );
+
+        $config->setResultCache(
+            new PhpFilesAdapter(
+                namespace: 'result_cache',
+                directory: $cacheDirectory
             )
         );
 

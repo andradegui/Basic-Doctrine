@@ -11,8 +11,10 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 use Alura\Doctrine\Repository\StudentRepository;
+// use Doctrine\ORM\Mapping\Table;
 
 #[Entity(StudentRepository::class)]
+// #[Table("teste")]
 class Student
 {
     #[Id, GeneratedValue, Column]

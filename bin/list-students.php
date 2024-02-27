@@ -38,7 +38,11 @@ foreach ($studentList as $student) {
 
 $studentClass = Student::class;
 
-$dql = "SELECT COUNT(student) FROM $studentClass student";
+// $dql = "SELECT COUNT(student) FROM $studentClass student ";
 // $dql = "SELECT COUNT(student) FROM $studentClass student WHERE SIZE(student.phones) = 1";
+$dql = "SELECT COUNT(student) FROM $studentClass student WHERE SIZE(student.phones) = 2";
 
-var_dump($entityManager->createQuery($dql)->getSingleScalarResult());
+// Configuração p/ armazenar resultados de query em cache durante 1 dia
+$query = $entityManager->createQuery($dql)->enableResultCache(86400);
+$singleScalarResult = $query->getSingleResult();
+var_dump($singleScalarResult);

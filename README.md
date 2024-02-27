@@ -7,6 +7,12 @@
 `php bin/doctrine.php`
 `php bin/doctrine.php orm:schema-tool:update --force`
 
+### Comando pra apagar cache de query
+`php bin/doctrine.php orm:clear-cache:query`
+
+### Comando pra apagar cache de metadata
+`php bin/doctrine.php orm:clear-cache:metadata`
+
 ### P/ rodar uma consulta em SQL
 `php bin/doctrine.php dbal:run-sql ""`
 
@@ -19,7 +25,7 @@
 
 ---
 
-- Inserir Aluno `php bin/insert-student.php`
+- Inserir Aluno `php bin/insert-student.php "Aluno"`
 - Listar Aluno `php bin/list-students.php`
 - Atualizar Aluno `php bin/rename-student.php 1 "Gui Lima"`
 - Deletar Aluno `php bin/delete-student.php 2`
