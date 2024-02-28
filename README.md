@@ -22,8 +22,6 @@
 ### Rodar uma consulta em SQL
 `php bin/doctrine.php dbal:run-sql ""`
 
----
-
 ### Comandos migrations
 `php vendor/bin/doctrine-migrations`
 
