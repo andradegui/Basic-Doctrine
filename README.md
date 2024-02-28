@@ -1,5 +1,9 @@
 # App Students
 
+- PHP 8.2;
+- Banco MySQL (foi utilizado SQLite tbm);
+- Doctrine 2.12.2
+
 ## Aplicação criada pra estudos no Doctrine
 
 ## Comandos úteis Doctrine
