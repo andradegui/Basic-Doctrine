@@ -10,26 +10,22 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240220185233 extends AbstractMigration
+final class Version20240228133837 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Criação de uma tabela teste_3';
+        return '';
     }
 
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $table = $schema->createTable('teste_3');
-        $table->addColumn('id', 'integer')->setAutoincrement(true);
-        $table->addColumn('coluna_teste', 'string');
-        $table->setPrimaryKey(['id']);
+        $this->addSql('ALTER TABLE course CHANGE nome name VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $schema->dropTable('teste_3');
-
+        $this->addSql('ALTER TABLE Course CHANGE name nome VARCHAR(255) NOT NULL');
     }
 }
